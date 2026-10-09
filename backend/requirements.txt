@@ -1,7 +1,38 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Sanchal — Python Dependencies (Phase 2)
+# Backend: FastAPI + SQLite ORM + Spatial + ML + NLP
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── Web framework ─────────────────────────────────────────────────────────────
 fastapi==0.115.0
 uvicorn[standard]==0.30.6
-sqlalchemy==2.0.35
 pydantic==2.9.2
 python-multipart==0.0.12
 aiofiles==24.1.0
 httpx==0.27.2
+
+# ── Database ORM ──────────────────────────────────────────────────────────────
+sqlalchemy==2.0.35
+
+# ── Spatial conflict engine ───────────────────────────────────────────────────
+# NOTE: geopandas pulls in pyproj/fiona; Shapely alone is sufficient for our
+#       buffer-and-intersect logic, so we keep both but make geopandas optional.
+shapely==2.0.6
+geopandas==0.14.4
+
+# ── ML delay predictor ────────────────────────────────────────────────────────
+lightgbm==4.5.0
+scikit-learn==1.5.2
+pandas==2.2.3
+numpy==1.26.4
+joblib==1.4.2
+
+# ── NLP grievance classifier ──────────────────────────────────────────────────
+# Torch CPU-only build keeps image size manageable for Render free tier.
+# Swap to full torch if GPU inference is needed.
+transformers==4.44.2
+torch==2.4.1+cpu ; platform_system == "Linux"
+torch==2.4.1 ; platform_system != "Linux"
+
+# ── Translation (WhatsApp multilingual responses) ─────────────────────────────
+deep-translator==1.11.4
