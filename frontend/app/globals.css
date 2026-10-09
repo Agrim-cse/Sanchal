@@ -1,6 +1,12 @@
 @import "tailwindcss";
 
-/* ── Google Font: Inter ───────────────────────────────────────────── */
+
+/* ── Tell Tailwind v4 where to scan for class names ──────────────── */
+@source "../app/**/*.{js,ts,jsx,tsx}";
+@source "../components/**/*.{js,ts,jsx,tsx}";
+@source "../data/**/*.{js,ts,jsx,tsx}";
+@source "../lib/**/*.{js,ts,jsx,tsx}";
+
 :root {
   --font-inter: "Inter", system-ui, sans-serif;
 
@@ -21,7 +27,9 @@
   --risk-ok: #10B981;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -123,6 +131,17 @@ a {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* ── Scrollbar thin utility (used in GrievanceFeed) ────────────── */
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+.scrollbar-track-transparent {
+  scrollbar-color: transparent transparent;
+}
+.scrollbar-thumb-\[\#1E2330\] {
+  scrollbar-color: #1E2330 transparent;
 }
 
 /* ── Print styles for CPGRAMS ───────────────────────────────────── */

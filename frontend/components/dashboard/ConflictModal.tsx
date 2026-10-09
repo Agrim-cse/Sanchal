@@ -7,14 +7,16 @@ import {
   CheckCircle2,
   ChevronRight,
 } from "lucide-react";
-import { ConflictAlert, mockPublicWorks } from "@/data/mockData";
+import { ConflictAlert, PublicWork } from "@/data/mockData";
 import clsx from "clsx";
 
 interface ConflictModalProps {
   conflicts: ConflictAlert[];
+  /** Live projects array passed from parent (replaces mockPublicWorks import) */
+  works: PublicWork[];
 }
 
-export default function ConflictModal({ conflicts }: ConflictModalProps) {
+export default function ConflictModal({ conflicts, works }: ConflictModalProps) {
   const [selectedConflict, setSelectedConflict] = useState<ConflictAlert | null>(null);
   const [permitIssued, setPermitIssued] = useState<Set<string>>(new Set());
 
@@ -22,6 +24,15 @@ export default function ConflictModal({ conflicts }: ConflictModalProps) {
     setPermitIssued((prev) => new Set([...prev, id]));
     setSelectedConflict(null);
   };
+
+  if (conflicts.length === 0) {
+    return (
+      <div className="flex flex-col items-center justify-center py-8 gap-2">
+        <CheckCircle2 size={24} color="#10B981" />
+        <p className="text-[11px] text-[#6B7280]">No spatial conflicts detected</p>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -156,10 +167,10 @@ export default function ConflictModal({ conflicts }: ConflictModalProps) {
                 </h3>
               </div>
 
-              {/* Overlapping projects */}
+              {/* Overlapping projects — resolved from live works list */}
               <div className="space-y-2">
                 {selectedConflict.project_ids.map((pid) => {
-                  const work = mockPublicWorks.find((w) => w.id === pid);
+                  const work = works.find((w) => w.id === pid);
                   if (!work) return null;
                   return (
                     <div
