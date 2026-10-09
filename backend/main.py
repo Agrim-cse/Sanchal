@@ -21,8 +21,9 @@ import os
 from datetime import datetime
 from typing import Any, Optional
 
-from fastapi import Depends, FastAPI, HTTPException, BackgroundTasks
+from fastapi import Depends, FastAPI, Form, HTTPException, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import HTMLResponse
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
@@ -32,6 +33,7 @@ from ml_engine import predict_delay_risk, train_and_save_model
 from models import Contractor, PublicWork, SocialGrievance
 from nlp_engine import classify_grievance
 from spatial_engine import detect_spatial_conflicts
+from whatsapp_bot import process_whatsapp_message, build_twiml_response
 
 # ---------------------------------------------------------------------------
 # Logging
@@ -385,3 +387,52 @@ async def get_dashboard_summary(db: Session = Depends(get_db)):
         "high_urgency_grievances":  high_urgency,
         "avg_contractor_cri":       avg_cri,
     }
+
+
+# ---------------------------------------------------------------------------
+# Phase 4 — Twilio WhatsApp Webhook
+# ---------------------------------------------------------------------------
+
+@app.post(
+    "/api/whatsapp",
+    tags=["Integrations"],
+    response_class=HTMLResponse,
+    summary="Twilio WhatsApp inbound webhook",
+    description=(
+        "Receives an inbound WhatsApp message forwarded by Twilio, queries the "
+        "Sanchal project database, translates the response into the citizen's "
+        "language (Tamil / Hindi / English), and returns a TwiML XML reply that "
+        "Twilio sends back as a WhatsApp message."
+    ),
+)
+async def whatsapp_webhook(
+    Body: str = Form(..., description="Text body of the incoming WhatsApp message"),
+    From: str = Form(..., description="Sender's WhatsApp number, e.g. whatsapp:+919876543210"),
+    db: Session = Depends(get_db),
+):
+    """
+    Twilio sends a multipart/form-data POST with (at minimum):
+      - Body   : the citizen's raw message text
+      - From   : the sender's WhatsApp-prefixed number
+
+    We respond with TwiML XML (Content-Type: text/xml) so Twilio can relay
+    the WhatsApp reply back to the citizen.
+
+    Example Twilio webhook URL to configure:
+      POST https://<your-domain>/api/whatsapp
+    """
+    try:
+        reply_text = process_whatsapp_message(
+            body=Body,
+            from_number=From,
+            db=db,
+        )
+    except Exception as exc:
+        logger.error("WhatsApp bot processing error: %s", exc)
+        reply_text = (
+            "⚠️ Sanchal is temporarily unavailable. "
+            "Please try again in a moment or visit pgportal.gov.in."
+        )
+
+    twiml_xml = build_twiml_response(reply_text)
+    return HTMLResponse(content=twiml_xml, media_type="text/xml")

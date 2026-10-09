@@ -36,3 +36,6 @@ torch==2.4.1 ; platform_system != "Linux"
 
 # ── Translation (WhatsApp multilingual responses) ─────────────────────────────
 deep-translator==1.11.4
+
+# ── Phase 4 integrations ──────────────────────────────────────────────────────
+twilio>=9.0.0
