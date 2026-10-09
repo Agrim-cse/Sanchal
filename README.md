@@ -1,6 +1,7 @@
 # Sanchal — AI Municipal Intelligence & Spatial Conflict Resolution Platform
 
-> **Phase 1 Complete** · Greater Chennai Corporation · Tamil Nadu
+> **Phase 1 Complete** · Greater Chennai Corporation · Tamil Nadu  
+> 📄 **Product Requirements Document (PRD):** See [`docs/PRD.md`](docs/PRD.md) for full technical specifications, design tokens, and architecture.
 
 ---
 
