@@ -1,0 +1,205 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PRJ-CHE-101",
+        "road_name": "OMR Service Road, Perungudi",
+        "department": "Chennai Metro Water",
+        "contractor": "L&T Infrastructure",
+        "start_date": "2026-10-01",
+        "end_date": "2026-11-20",
+        "delay_risk_score": 82,
+        "status": "CRITICAL_OVERLAP",
+        "description": "Underground pipeline replacement — 900mm DI main",
+        "estimated_cost_cr": 14.5,
+        "cpgrams_count": 38
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [80.2459, 12.9685],
+          [80.2481, 12.9701],
+          [80.2503, 12.9718],
+          [80.2527, 12.9734]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PRJ-CHE-102",
+        "road_name": "OMR Service Road, Sholinganallur",
+        "department": "TNEB Electricity Board",
+        "contractor": "KEC International",
+        "start_date": "2026-09-25",
+        "end_date": "2026-11-15",
+        "delay_risk_score": 88,
+        "status": "CRITICAL_OVERLAP",
+        "description": "Underground HT cable laying — 33 KV feeder line",
+        "estimated_cost_cr": 9.2,
+        "cpgrams_count": 51
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [80.2465, 12.9690],
+          [80.2487, 12.9706],
+          [80.2509, 12.9723],
+          [80.2531, 12.9739]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PRJ-CHE-103",
+        "road_name": "Velachery Main Road, Taramani",
+        "department": "CMRL Metro",
+        "contractor": "Afcons Infrastructure",
+        "start_date": "2026-10-05",
+        "end_date": "2026-12-31",
+        "delay_risk_score": 61,
+        "status": "MODERATE_RISK",
+        "description": "Metro Phase 2 utility diversion — water & sewerage",
+        "estimated_cost_cr": 22.8,
+        "cpgrams_count": 24
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [80.2244, 12.9824],
+          [80.2267, 12.9839],
+          [80.2291, 12.9852],
+          [80.2315, 12.9864]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PRJ-CHE-104",
+        "road_name": "GST Road, Chromepet Junction",
+        "department": "BSNL Telecom",
+        "contractor": "Sterlite Technologies",
+        "start_date": "2026-10-08",
+        "end_date": "2026-10-30",
+        "delay_risk_score": 45,
+        "status": "MODERATE_RISK",
+        "description": "OFC duct laying — 96F single mode fibre",
+        "estimated_cost_cr": 3.6,
+        "cpgrams_count": 11
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [80.1348, 12.9510],
+          [80.1369, 12.9523],
+          [80.1391, 12.9534],
+          [80.1413, 12.9545]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PRJ-CHE-105",
+        "road_name": "GST Road, Tambaram",
+        "department": "Chennai Metro Water",
+        "contractor": "NCC Limited",
+        "start_date": "2026-09-20",
+        "end_date": "2026-10-25",
+        "delay_risk_score": 28,
+        "status": "ON_SCHEDULE",
+        "description": "Sewerage network upgrade — SPS outfall main",
+        "estimated_cost_cr": 7.1,
+        "cpgrams_count": 7
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [80.1198, 12.9237],
+          [80.1219, 12.9248],
+          [80.1240, 12.9259],
+          [80.1262, 12.9270]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PRJ-CHE-106",
+        "road_name": "Anna Salai, Nandanam",
+        "department": "TNEB Electricity Board",
+        "contractor": "Tata Projects Limited",
+        "start_date": "2026-10-03",
+        "end_date": "2026-11-28",
+        "delay_risk_score": 55,
+        "status": "MODERATE_RISK",
+        "description": "Underground cabling — 110 KV grid substation feeder",
+        "estimated_cost_cr": 18.4,
+        "cpgrams_count": 19
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [80.2332, 13.0314],
+          [80.2341, 13.0329],
+          [80.2352, 13.0345],
+          [80.2363, 13.0361]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PRJ-CHE-107",
+        "road_name": "ECR, Thiruvanmiyur",
+        "department": "CMRL Metro",
+        "contractor": "Larsen & Toubro",
+        "start_date": "2026-10-10",
+        "end_date": "2026-12-15",
+        "delay_risk_score": 15,
+        "status": "ON_SCHEDULE",
+        "description": "Utility relocation for coastal metro corridor",
+        "estimated_cost_cr": 31.2,
+        "cpgrams_count": 4
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [80.2567, 12.9897],
+          [80.2583, 12.9912],
+          [80.2601, 12.9928],
+          [80.2619, 12.9943]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PRJ-CHE-108",
+        "road_name": "Poonamallee High Road, Koyambedu",
+        "department": "BSNL Telecom",
+        "contractor": "Bharti Infratel",
+        "start_date": "2026-09-28",
+        "end_date": "2026-11-05",
+        "delay_risk_score": 77,
+        "status": "CRITICAL_OVERLAP",
+        "description": "5G backbone duct installation — transit hub connectivity",
+        "estimated_cost_cr": 5.9,
+        "cpgrams_count": 33
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [80.1956, 13.0694],
+          [80.1973, 13.0708],
+          [80.1991, 13.0722],
+          [80.2009, 13.0736]
+        ]
+      }
+    }
+  ]
+}
